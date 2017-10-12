@@ -31,9 +31,17 @@
 		}
 
         obj.addEventListener('mousemove',move);
+
         function move(ev){
             obj.style.left = ev.clientX - disX;
             obj.style.top = ev.clientY - disY;
+        }
+
+        obj.addEventListener('mouseup',up);
+        
+        function up(){
+            obj.removeEventListener('mousemove',move);
+            obj.removeEventListener('mouseup',up);
         }
 	}
 
