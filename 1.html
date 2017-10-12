@@ -9,17 +9,19 @@
 			height: 50px;
 			background: red;
 			position: absolute;
-			left: 0;
-			top: 0;
+			cursor: pointer;
 		}
 	</style>
 </head>
 <body>
+	这是一段文字!!!
 	<div id="box"></div>
 </body>
 <script>
 
-	var div = document.getElementById('box');
+	var box = document.getElementById('box');
+
+	drag(box);
 
 	function drag(obj){
 	    obj.addEventListener('mousedown',down);
@@ -28,21 +30,23 @@
 	    function down(ev){
 	        disX = ev.clientX - obj.offsetLeft;
 	        disY = ev.clientY - obj.offsetTop;
+
+            document.addEventListener('mousemove',move);
+
+            function move(ev){
+                obj.style.left = ev.clientX - disX + 'px';
+                obj.style.top = ev.clientY - disY + 'px';
+            }
+
+            document.addEventListener('mouseup',up);
+
+            function up(){
+                document.removeEventListener('mousemove',move);
+                document.removeEventListener('mouseup',up);
+            }
+
+            ev.preventDefault();
 		}
-
-        obj.addEventListener('mousemove',move);
-
-        function move(ev){
-            obj.style.left = ev.clientX - disX;
-            obj.style.top = ev.clientY - disY;
-        }
-
-        obj.addEventListener('mouseup',up);
-        
-        function up(){
-            obj.removeEventListener('mousemove',move);
-            obj.removeEventListener('mouseup',up);
-        }
 	}
 
 </script>
