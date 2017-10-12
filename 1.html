@@ -19,7 +19,8 @@
 </body>
 <script>
 	var div = document.getElementById('box');
-	
+
+	obj.addEventListener('mousemove',move);
 	function move(ev){
 	    obj.style.left = ev.clientX - disX;
 	    obj.style.top = ev.clientY - disY;
