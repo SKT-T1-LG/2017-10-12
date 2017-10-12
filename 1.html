@@ -19,5 +19,11 @@
 </body>
 <script>
 	var div = document.getElementById('box');
+
+	obj.addEventListener('mouseup',up);
+	function up(){
+	    obj.removeEventListener('mousemove',move);
+	    obj.removeEventListener('mouseup',up);
+	}
 </script>
 </html>
