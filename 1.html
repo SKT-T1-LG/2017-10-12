@@ -29,6 +29,12 @@
 	        disX = ev.clientX - obj.offsetLeft;
 	        disY = ev.clientY - obj.offsetTop;
 		}
+
+        obj.addEventListener('mousemove',move);
+        function move(ev){
+            obj.style.left = ev.clientX - disX;
+            obj.style.top = ev.clientY - disY;
+        }
 	}
 
 </script>
