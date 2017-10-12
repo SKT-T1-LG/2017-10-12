@@ -18,6 +18,18 @@
 	<div id="box"></div>
 </body>
 <script>
+
 	var div = document.getElementById('box');
+
+	function drag(obj){
+	    obj.addEventListener('mousedown',down);
+        var disX = 0;
+        var disY = 0;
+	    function down(ev){
+	        disX = ev.clientX - obj.offsetLeft;
+	        disY = ev.clientY - obj.offsetTop;
+		}
+	}
+
 </script>
 </html>
