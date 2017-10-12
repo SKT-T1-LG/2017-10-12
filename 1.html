@@ -19,5 +19,10 @@
 </body>
 <script>
 	var div = document.getElementById('box');
+	
+	function move(ev){
+	    obj.style.left = ev.clientX - disX;
+	    obj.style.top = ev.clientY - disY;
+	}
 </script>
 </html>
